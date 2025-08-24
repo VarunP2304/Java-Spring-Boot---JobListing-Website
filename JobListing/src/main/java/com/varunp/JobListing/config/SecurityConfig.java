@@ -35,36 +35,37 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/user", "/api/user/role").authenticated()
+                        // --- FIX: Allow public access to the /api/user endpoint ---
+                        .requestMatchers("/api/user").permitAll()
+                        .requestMatchers("/api/user/role").authenticated()
 
                         .requestMatchers(HttpMethod.POST, "/api/job")
-                        .access((authentication, context) -> customAuthorizationManager.isEmployer(authentication))
+                            .access((authentication, context) -> customAuthorizationManager.isEmployer(authentication))
                         .requestMatchers(HttpMethod.PUT, "/api/job/**")
-                        .access((authentication, context) -> customAuthorizationManager.isEmployer(authentication))
+                            .access((authentication, context) -> customAuthorizationManager.isEmployer(authentication))
                         .requestMatchers(HttpMethod.DELETE, "/api/job/**")
-                        .access((authentication, context) -> customAuthorizationManager.isEmployer(authentication))
+                            .access((authentication, context) -> customAuthorizationManager.isEmployer(authentication))
                         .requestMatchers(HttpMethod.GET, "/api/my-jobs")
-                        .access((authentication, context) -> customAuthorizationManager.isEmployer(authentication))
-
-                        // This rule was updated to include search
+                            .access((authentication, context) -> customAuthorizationManager.isEmployer(authentication))
+                        
                         .requestMatchers(HttpMethod.GET, "/api/jobs/**")
-                        .access((authentication, context) -> customAuthorizationManager.isCandidate(authentication))
-
+                            .access((authentication, context) -> customAuthorizationManager.isCandidate(authentication))
+                        
                         .requestMatchers(HttpMethod.GET, "/api/job/**")
-                        .access((authentication, context) -> {
-                            boolean isAuthorized = customAuthorizationManager.isEmployer(authentication).isGranted() ||
-                                    customAuthorizationManager.isCandidate(authentication).isGranted();
-                            return new AuthorizationDecision(isAuthorized);
-                        })
-
+                            .access((authentication, context) -> {
+                                boolean isAuthorized = customAuthorizationManager.isEmployer(authentication).isGranted() ||
+                                                       customAuthorizationManager.isCandidate(authentication).isGranted();
+                                return new AuthorizationDecision(isAuthorized);
+                            })
+                        
                         .anyRequest().authenticated()
-                ) // This is the only closing parenthesis for authorizeHttpRequests
+                )
                 .oauth2Login(oauth -> oauth
-                        .defaultSuccessUrl("https://joblisting-frontend-bck9.onrender.com", true)
+                        .defaultSuccessUrl("http://localhost:3000", true)
                 )
                 .logout(logout -> logout
                         .logoutUrl("/api/logout")
-                        .logoutSuccessUrl("https://joblisting-frontend-bck9.onrender.com")
+                        .logoutSuccessUrl("http://localhost:3000")
                         .invalidateHttpSession(true)
                         .deleteCookies("JSESSIONID")
                 );
