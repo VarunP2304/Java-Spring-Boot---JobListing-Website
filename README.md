@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# JobListing: A Full-Stack, Role-Based Job Portal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Java](https://img.shields.io/badge/Java-17+-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 
-## Available Scripts
+JobListing is a modern, full-stack web application designed to connect employers and job seekers. Built with a powerful Spring Boot backend and a dynamic React frontend, it features a secure, role-based system where employers can manage their job postings and candidates can browse and apply for opportunities.
 
-In the project directory, you can run:
+The project leverages Google OAuth2 for seamless authentication and demonstrates key principles of modern web development, including RESTful API design, secure session management, and granular, role-based access control (RBAC).
 
-### `npm start`
+**Live Demo:** `[YOUR_LIVE_DEMO_URL_HERE]` *(It is highly recommended to deploy your app and add the link here)*
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
+## 📸 Screenshots
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+| Landing Page | Candidate Job Feed | Employer Dashboard |
+| :---: | :---: | :---: |
+| *[PASTE_SCREENSHOT_OF_LANDING_PAGE_HERE]* | *[PASTE_SCREENSHOT_OF_CANDIDATE_FEED_HERE]* | *[PASTE_SCREENSHOT_OF_EMPLOYER_DASHBOARD_HERE]* |
 
-### `npm test`
+---
+## ✨ Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The application supports two distinct user roles with tailored experiences:
 
-### `npm run build`
+#### **👨‍💼 Employer Features**
+* **Secure Authentication:** Log in securely using a Google account.
+* **Post Ownership:** Employers can only view, edit, and delete job postings that they have created.
+* **CRUD Operations:** Full Create, Read, Update, and Delete functionality for job postings.
+* **Personalized Dashboard:** View a dedicated dashboard listing all personal job postings, sorted by the most recent.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### **👩‍💻 Candidate Features**
+* **Secure Authentication:** Log in securely using a Google account.
+* **Comprehensive Job Feed:** View and browse all available job postings from all employers, sorted by the most recent.
+* **Dynamic Search:** Search for jobs in real-time by title, company, or skills.
+* **Simple Application Process:** Apply for jobs with a single click.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
+## 🛠️ Tech Stack & Architecture
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This project is built using a modern, industry-standard technology stack.
 
-### `npm run eject`
+* **Backend:**
+    * **Java 17** & **Spring Boot 3**: For building a robust and scalable REST API.
+    * **Spring Security (OAuth2 Client)**: For handling authentication and role-based authorization.
+    * **Spring Data MongoDB**: For seamless data persistence and querying.
+    * **Maven**: For project dependency management.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* **Frontend:**
+    * **React 18**: For building a fast, interactive, and component-based user interface.
+    * **React Router**: For client-side routing and navigation.
+    * **Axios**: For making promise-based HTTP requests to the backend.
+    * **CSS3**: For custom styling and a professional look and feel.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* **Database:**
+    * **MongoDB**: A NoSQL database used for storing user profiles and job postings.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
+## 🚀 Getting Started
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+To get a local copy up and running, follow these simple steps.
 
-## Learn More
+### Prerequisites
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* **Java JDK 17** or newer
+* **Maven** 3.8 or newer
+* **Node.js** 16 or newer
+* **MongoDB** running locally on `mongodb://localhost:27017`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Backend Setup
 
-### Code Splitting
+1.  **Configure Google OAuth2 Credentials**
+    * Rename the `application.yml.example` file in `src/main/resources` to `application.yml`.
+    * **IMPORTANT:** Add this file to your `.gitignore` to keep your secrets safe!
+    * Set your `client-id` and `client-secret` obtained from the Google Cloud Console inside `application.yml`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2.  **Run the Backend Server**
+    ```shell
+    # Navigate to the backend project directory
+    mvn spring-boot:run
+    ```
+    The server will start on `http://localhost:8080`.
 
-### Analyzing the Bundle Size
+### Frontend Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1.  **Install NPM packages**
+    ```shell
+    # Navigate to the frontend project directory
+    npm install
+    ```
+2.  **Run the Frontend Server**
+    ```shell
+    npm start
+    ```
+    The application will be available at `http://localhost:3000`.
 
-### Making a Progressive Web App
+---
+## 📈 Future Enhancements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project serves as a strong foundation. Future improvements could include:
+* **Containerization with Docker:** Create a `docker-compose.yml` file to streamline the setup process for all services.
+* **Advanced Filtering:** Allow candidates to filter jobs by location, experience level, and job type.
+* **Applicant Tracking:** Enhance the "Apply" feature to allow employers to view a list of candidates who have applied to their jobs.
+* **Unit & Integration Testing:** Implement JUnit and Mockito tests on the backend to ensure code quality and reliability.
+* **CI/CD Pipeline:** Set up a GitHub Actions workflow to automatically test and deploy the application.
