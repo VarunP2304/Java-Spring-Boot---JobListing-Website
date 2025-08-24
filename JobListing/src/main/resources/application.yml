@@ -2,12 +2,15 @@
 frontend:
   url: http://localhost:3000
 
+# Add this property under the server block
 server:
+  forward-headers-strategy: native
   port: 8080
   servlet:
     session:
       cookie:
-        same-site: lax # Add this block
+        # This will be overridden by environment variables in production
+        same-site: lax
 
 spring:
   data:
