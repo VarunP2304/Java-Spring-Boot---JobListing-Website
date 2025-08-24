@@ -16,9 +16,12 @@ The project leverages Google OAuth2 for seamless authentication and demonstrates
 
 | Landing Page | Candidate Job Feed |
 | :---: | :---: |
-| \<img width="1916" alt="Landing Page" src="[https://github.com/user-attachments/assets/7a239db5-3b2b-40f2-82e3-9aeac0e32f74](https://github.com/user-attachments/assets/7a239db5-3b2b-40f2-82e3-9aeac0e32f74)" /\> | \<img width="1901" alt="Candidate Feed" src="[https://github.com/user-attachments/assets/1cb4b210-46e8-4da0-ad09-4be92d0510ef](https://github.com/user-attachments/assets/1cb4b210-46e8-4da0-ad09-4be92d0510ef)" /\> |
+|<img width="1919" height="974" alt="Screenshot 2025-08-24 193855" src="https://github.com/user-attachments/assets/47063415-94ef-4558-b626-05da0c16ec33" />
+|<img width="1901" height="910" alt="Screenshot 2025-08-24 200435" src="https://github.com/user-attachments/assets/eccca1b1-5a5a-4907-aa53-81292d1e845e" />
+ |
 | **Employer Dashboard** | **Job Posting Form** |
-| \<img width="1916" alt="Employer Dashboard" src="[https://github.com/user-attachments/assets/b79bea99-1db8-4c01-a783-57964ac5f5f0](https://github.com/user-attachments/assets/b79bea99-1db8-4c01-a783-57964ac5f5f0)" /\> | \<img width="1906" alt="Create a Job Post" src="[https://github.com/user-attachments/assets/9154aa9e-03a7-4b08-8a5b-39f2a33b5f3c](https://github.com/user-attachments/assets/9154aa9e-03a7-4b08-8a5b-39f2a33b5f3c)" /\> |
+|<img width="1916" height="863" alt="Screenshot 2025-08-24 200516" src="https://github.com/user-attachments/assets/10f33bed-0f16-4e9a-b9ad-9db4744277e8" />
+ | <img width="1906" height="848" alt="Screenshot 2025-08-24 200533" src="https://github.com/user-attachments/assets/5d4671dc-e535-49f4-abe2-05982f8e5bbd" />|
 
 -----
 
