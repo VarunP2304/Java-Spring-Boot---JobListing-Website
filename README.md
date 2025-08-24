@@ -79,7 +79,7 @@ To get a local copy up and running, follow these simple steps.
     # Navigate to the backend project directory
     mvn spring-boot:run
     ```
-    The server will start on `http://localhost:8080`.
+    The server will start on `https://joblisting-backend-gvl5.onrender.com`.
 
 ### Frontend Setup
 

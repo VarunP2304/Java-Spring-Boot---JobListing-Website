@@ -60,7 +60,7 @@ function App() {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const { data } = await axios.get("http://localhost:8080/api/user");
+                const { data } = await axios.get("https://joblisting-backend-gvl5.onrender.com/api/user");
                 if (data.authenticated) {
                     setUser(data);
                 }

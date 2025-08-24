@@ -13,7 +13,7 @@ const PostDetail = () => {
         const fetchPost = async () => {
             if (!user) return; // Don't fetch if user isn't loaded yet
             try {
-                const { data } = await axios.get(`http://localhost:8080/api/job/${id}`);
+                const { data } = await axios.get(`https://joblisting-backend-gvl5.onrender.com/api/job/${id}`);
                 setPost(data);
             } catch (error) {
                 console.error('Failed to fetch post:', error);
@@ -26,7 +26,7 @@ const PostDetail = () => {
     const handleDelete = async () => {
         if (window.confirm('Are you sure you want to delete this post?')) {
             try {
-                await axios.delete(`http://localhost:8080/api/job/${id}`);
+                await axios.delete(`https://joblisting-backend-gvl5.onrender.com/api/job/${id}`);
                 navigate('/'); // Redirect to homepage on successful deletion
             } catch (error) {
                 console.error('Failed to delete post:', error);

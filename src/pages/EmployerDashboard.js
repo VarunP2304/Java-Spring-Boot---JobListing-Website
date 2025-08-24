@@ -18,7 +18,7 @@ const EmployerDashboard = () => {
         const fetchEmployerPosts = async () => {
             try {
                 // Fetch from the new employer-specific endpoint
-                const { data } = await axios.get("http://localhost:8080/api/my-jobs");
+                const { data } = await axios.get("https://joblisting-backend-gvl5.onrender.com/api/my-jobs");
                 setPosts(data);
             } catch (error) {
                 console.error("Failed to fetch employer posts:", error);

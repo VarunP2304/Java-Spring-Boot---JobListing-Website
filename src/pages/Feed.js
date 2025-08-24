@@ -19,11 +19,11 @@ const Feed = () => {
   //
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await axios.get(`http://localhost:8080/posts/${query}`);
+      const response = await axios.get(`https://joblisting-backend-gvl5.onrender.com/posts/${query}`);
       setPost(response.data);
     };
     const fetchInitialPosts = async () => {
-        const response = await axios.get(`http://localhost:8080/allPosts`);
+        const response = await axios.get(`https://joblisting-backend-gvl5.onrender.com/allPosts`);
         console.log(response);
         setPost(response.data);
     }

@@ -37,8 +37,8 @@ const CandidateFeed = () => {
         const fetchPosts = async () => {
             try {
                 const endpoint = search
-                    ? `http://localhost:8080/api/jobs/search/${search}`
-                    : "http://localhost:8080/api/jobs";
+                    ? `https://joblisting-backend-gvl5.onrender.com/api/jobs/search/${search}`
+                    : "https://joblisting-backend-gvl5.onrender.com/api/jobs";
                 const { data } = await axios.get(endpoint);
                 setPosts(data);
             } catch (error) {

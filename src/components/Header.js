@@ -9,7 +9,7 @@ const Header = () => {
         // Using a form POST is a more robust way to handle logout
         const form = document.createElement('form');
         form.method = 'POST';
-        form.action = 'http://localhost:8080/api/logout';
+        form.action = 'https://joblisting-backend-gvl5.onrender.com/api/logout';
         document.body.appendChild(form);
         form.submit();
     };

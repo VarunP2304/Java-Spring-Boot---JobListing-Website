@@ -3,7 +3,7 @@ import React from 'react';
 const LandingPage = () => {
     const handleLogin = () => {
         // Both buttons trigger the same Google login endpoint
-        window.location.href = "http://localhost:8080/oauth2/authorization/google";
+        window.location.href = "https://joblisting-backend-gvl5.onrender.com/oauth2/authorization/google";
     };
 
     return (

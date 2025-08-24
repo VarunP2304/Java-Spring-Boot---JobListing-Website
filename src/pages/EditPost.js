@@ -19,7 +19,7 @@ const EditPost = () => {
     useEffect(() => {
         const fetchPost = async () => {
             try {
-                const { data } = await axios.get(`http://localhost:8080/api/job/${id}`);
+                const { data } = await axios.get(`https://joblisting-backend-gvl5.onrender.com/api/job/${id}`);
                 setFormData({
                     ...data,
                     techStack: (data.techStack || []).join(', ') // Convert array back to comma-separated string for input
@@ -51,7 +51,7 @@ const EditPost = () => {
         };
         
         try {
-            await axios.put(`http://localhost:8080/api/job/${id}`, postData);
+            await axios.put(`https://joblisting-backend-gvl5.onrender.com/api/job/${id}`, postData);
             navigate(`/post/${id}`); // Go back to the detail page after editing
         } catch (error) {
             console.error('Failed to update post:', error);

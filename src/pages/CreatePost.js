@@ -35,7 +35,7 @@ const CreatePost = () => {
         };
 
         try {
-            await axios.post('http://localhost:8080/api/job', postData);
+            await axios.post('https://joblisting-backend-gvl5.onrender.com/api/job', postData);
             navigate('/');
         } catch (error) {
             console.error('Failed to create post:', error);
