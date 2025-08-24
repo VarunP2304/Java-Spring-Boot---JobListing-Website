@@ -1,11 +1,13 @@
-# --- Stage 1: Build the application with Maven ---
-FROM maven:3.8.5-openjdk-17 AS builder
+# --- Stage 1: Build the application with Maven & JDK 21 ---
+# Use a Maven image that includes JDK 21 to match your pom.xml
+FROM maven:3.9.6-eclipse-temurin-21 AS builder
 
 # Set the working directory for the build
 WORKDIR /build
 
-# Copy the pom.xml first to leverage Docker layer caching
+# Copy pom.xml and download dependencies first to leverage Docker's build cache
 COPY pom.xml .
+RUN mvn dependency:go-offline
 
 # Copy the rest of the source code
 COPY src ./src
@@ -15,7 +17,8 @@ RUN mvn package -DskipTests
 
 
 # --- Stage 2: Create the final, lightweight runtime image ---
-FROM openjdk:17-slim
+# Use a minimal JRE 21 image for a smaller and more secure final container
+FROM eclipse-temurin:21-jre-alpine
 
 # Set the working directory for the runtime
 WORKDIR /app
