@@ -26,6 +26,9 @@ public class SecurityConfig {
     @Value("${cors.allowed-methods}")
     private String allowedMethods;
 
+    @Value("${frontend.url}")
+    private String frontendUrl;
+
     @Autowired
     private CustomAuthorizationManager customAuthorizationManager;
 
@@ -35,10 +38,12 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        // --- FIX: Allow public access to the /api/user endpoint ---
+                        // Publicly accessible endpoint to check user auth status
                         .requestMatchers("/api/user").permitAll()
+                        // Endpoint for logged-in users to set their role
                         .requestMatchers("/api/user/role").authenticated()
 
+                        // Employer-only endpoints
                         .requestMatchers(HttpMethod.POST, "/api/job")
                             .access((authentication, context) -> customAuthorizationManager.isEmployer(authentication))
                         .requestMatchers(HttpMethod.PUT, "/api/job/**")
@@ -48,9 +53,11 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/my-jobs")
                             .access((authentication, context) -> customAuthorizationManager.isEmployer(authentication))
                         
+                        // Candidate-only endpoints (includes search)
                         .requestMatchers(HttpMethod.GET, "/api/jobs/**")
                             .access((authentication, context) -> customAuthorizationManager.isCandidate(authentication))
                         
+                        // Endpoint to view a single job, accessible to both roles
                         .requestMatchers(HttpMethod.GET, "/api/job/**")
                             .access((authentication, context) -> {
                                 boolean isAuthorized = customAuthorizationManager.isEmployer(authentication).isGranted() ||
@@ -58,14 +65,15 @@ public class SecurityConfig {
                                 return new AuthorizationDecision(isAuthorized);
                             })
                         
+                        // Any other request must be authenticated
                         .anyRequest().authenticated()
                 )
                 .oauth2Login(oauth -> oauth
-                        .defaultSuccessUrl("http://localhost:3000", true)
+                        .defaultSuccessUrl(frontendUrl, true)
                 )
                 .logout(logout -> logout
                         .logoutUrl("/api/logout")
-                        .logoutSuccessUrl("http://localhost:3000")
+                        .logoutSuccessUrl(frontendUrl)
                         .invalidateHttpSession(true)
                         .deleteCookies("JSESSIONID")
                 );
