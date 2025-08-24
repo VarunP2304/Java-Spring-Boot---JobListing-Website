@@ -9,14 +9,18 @@ JobListing is a modern, full-stack web application designed to connect employers
 
 The project leverages Google OAuth2 for seamless authentication and demonstrates key principles of modern web development, including RESTful API design, secure session management, and granular, role-based access control (RBAC).
 
-**Live Demo:** `[YOUR_LIVE_DEMO_URL_HERE]` *(It is highly recommended to deploy your app and add the link here)*
+**Live Demo:** https://joblisting-frontend-bck9.onrender.com/ *(It is highly recommended to deploy your app and add the link here)*
 
 ---
 ## 📸 Screenshots
 
 | Landing Page | Candidate Job Feed | Employer Dashboard |
 | :---: | :---: | :---: |
-| *[PASTE_SCREENSHOT_OF_LANDING_PAGE_HERE]* | *[PASTE_SCREENSHOT_OF_CANDIDATE_FEED_HERE]* | *[PASTE_SCREENSHOT_OF_EMPLOYER_DASHBOARD_HERE]* |
+| <img width="1916" height="845" alt="image" src="https://github.com/user-attachments/assets/7a239db5-3b2b-40f2-82e3-9aeac0e32f74" />
+ | <img width="1901" height="910" alt="image" src="https://github.com/user-attachments/assets/1cb4b210-46e8-4da0-ad09-4be92d0510ef" />
+ | <img width="1916" height="863" alt="image" src="https://github.com/user-attachments/assets/b79bea99-1db8-4c01-a783-57964ac5f5f0" />
+ |<img width="1906" height="848" alt="image" src="https://github.com/user-attachments/assets/9154aa9e-03a7-4b08-8a5b-39f2a33b5f3c" />|
+
 
 ---
 ## ✨ Features
@@ -98,7 +102,6 @@ To get a local copy up and running, follow these simple steps.
 ## 📈 Future Enhancements
 
 This project serves as a strong foundation. Future improvements could include:
-* **Containerization with Docker:** Create a `docker-compose.yml` file to streamline the setup process for all services.
 * **Advanced Filtering:** Allow candidates to filter jobs by location, experience level, and job type.
 * **Applicant Tracking:** Enhance the "Apply" feature to allow employers to view a list of candidates who have applied to their jobs.
 * **Unit & Integration Testing:** Implement JUnit and Mockito tests on the backend to ensure code quality and reliability.
