@@ -14,13 +14,16 @@ The project leverages Google OAuth2 for seamless authentication and demonstrates
 
 ## 📸 Screenshots
 
-| **Landing Page** | **Candidate Job Feed** |
-
+| **Landing Page** |
 |<img width="1919" height="974" alt="Screenshot 2025-08-24 193855" src="https://github.com/user-attachments/assets/47063415-94ef-4558-b626-05da0c16ec33" />|
+
+| **Candidate Job Feed** |
 |<img width="1901" height="910" alt="Screenshot 2025-08-24 200435" src="https://github.com/user-attachments/assets/eccca1b1-5a5a-4907-aa53-81292d1e845e" />|
  
-| **Employer Dashboard** | **Job Posting Form** |
+| **Employer Dashboard** |
 |<img width="1916" height="863" alt="Screenshot 2025-08-24 200516" src="https://github.com/user-attachments/assets/10f33bed-0f16-4e9a-b9ad-9db4744277e8" />|
+
+| **Job Posting Form** |
 |<img width="1906" height="848" alt="Screenshot 2025-08-24 200533" src="https://github.com/user-attachments/assets/5d4671dc-e535-49f4-abe2-05982f8e5bbd" />|
 
 -----
