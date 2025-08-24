@@ -1,0 +1,28 @@
+server:
+  port: 8080
+  servlet:
+    session:
+      cookie:
+        same-site: lax # Add this block
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/joblistingapp
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+            scope:
+              - openid
+              - profile
+              - email
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+
+cors:
+  allowed-origins: http://localhost:3000
+  allowed-methods: GET,POST,PUT,DELETE,OPTIONS

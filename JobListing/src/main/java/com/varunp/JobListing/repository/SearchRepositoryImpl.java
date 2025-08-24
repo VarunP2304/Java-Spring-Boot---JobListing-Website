@@ -4,7 +4,7 @@ import com.mongodb.client.AggregateIterable;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.varunp.JobListing.model.Post;
+import com.varunp.JobListing.model.JobPost;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.convert.MongoConverter;
@@ -15,7 +15,8 @@ import java.util.Arrays;
 import java.util.List;
 
 @Component
-public class SearchRepositoryImpl implements SearchRepository{
+public class SearchRepositoryImpl implements SearchRepository {
+
     @Autowired
     MongoClient client;
 
@@ -23,23 +24,25 @@ public class SearchRepositoryImpl implements SearchRepository{
     MongoConverter converter;
 
     @Override
-    public List<Post> findByText(String text) {
-        final List<Post> posts = new ArrayList<>();
-        //fill the list
+    public List<JobPost> findByText(String text) {
+        final List<JobPost> posts = new ArrayList<>();
+
         MongoDatabase database = client.getDatabase("joblistingapp");
         MongoCollection<Document> collection = database.getCollection("jobpost");
-        AggregateIterable<Document> result = collection.aggregate(Arrays.asList(new Document("$search",
+
+        AggregateIterable<Document> result = collection.aggregate(Arrays.asList(
+                new Document("$search",
                         new Document("index", "default")
                                 .append("text",
-                                        new Document("query",text)
-                                                .append("path", Arrays.asList("profile", "desc","techs")))),
+                                        new Document("query", text)
+                                                .append("path", Arrays.asList("title", "description", "techStack", "company")))),
                 new Document("$sort",
-                        new Document("exp", 1L)),
-                new Document("$limit", 3L)));
+                        new Document("experience", -1L)), // Sort by experience descending
+                new Document("$limit", 10L)
+        ));
 
-    //doc received in each iteration must be added to posts  List
-        result.forEach(doc -> posts.add(converter.read(Post.class,doc)));
+        result.forEach(doc -> posts.add(converter.read(JobPost.class, doc)));
+
         return posts;
     }
-
 }
