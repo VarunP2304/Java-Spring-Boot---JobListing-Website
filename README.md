@@ -8,7 +8,7 @@ JobListing is a modern, full-stack web application designed to connect employers
 
 The project leverages Google OAuth2 for seamless authentication and demonstrates key principles of modern web development, including RESTful API design, secure session management, and granular, role-based access control (RBAC).
 
-**Live Demo:** **[https://joblisting-frontend-bck9.onrender.com/](https://joblisting-frontend-bck9.onrender.com/)**
+**View Live :** **https://tinyurl.com/JobListing-Spring-App**
 
 -----
 
